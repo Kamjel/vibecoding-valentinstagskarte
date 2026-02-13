@@ -1,4 +1,4 @@
-#Vibecoding - Valentinstagskarte
+# Vibecoding - Valentinstagskarte
 
 ## Prompt
 Hier ist der Prompt den ich beim Gemini angegeben habe:

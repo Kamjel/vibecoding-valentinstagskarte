@@ -3,6 +3,11 @@
 ## Prompt
 Hier ist der Prompt den ich beim Gemini angegeben habe:
 
+Erstelle ine interaktive Valentinstagskarte als einzelne HTML-DAtei. Der Vibe soll super romatisch sein: Pinker Hintergrund, schöne Schriftart vielleicht ein paar schwebende Herzen
+In der Mitte steht Groß: "Would you be mine Valentine?" mit "no" und "yes" Knopfen.
+Der Clou: Der No-Button soll unklickbar sein. Sobal man mit der Maus in der Nähe kommt, soll er an eine zufällige Stelle aud dem Bildschirm, flüchten.
+Wenn man auf Ja klickt, soll der Text sich ändern zu "Oh Yeah das wuste ich! uns es soll Konfetti regnen oder ganz viele Herzen erscheinen. Nutze HTML, CSS und Inline-JavaScript.
+
 ## Datei
 Die Valentinstagskarte ist eine HTML datei, d.h. diese kann mit einem Doppelklick aufgemacht werden sodass es in Browser auftaucht.
 

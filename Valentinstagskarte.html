@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Willst du mein Valentin sein?</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        h1 {
+            color: #d63384;
+            font-size: 3.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+        }
+
+        button {
+            padding: 15px 40px;
+            font-size: 1.5rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 10px;
+            transition: transform 0.2s;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        #btn-yes {
+            background-color: #28a745;
+            color: white;
+        }
+
+        #btn-yes:hover {
+            transform: scale(1.1);
+            background-color: #218838;
+        }
+
+        #btn-no {
+            background-color: #dc3545;
+            color: white;
+            position: absolute; /* Wichtig für das Bewegen */
+        }
+
+        /* Herzen Hintergrund Animation */
+        .bg-heart {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.5);
+            animation: float 6s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+        
+        /* Versteckter Erfolgstext */
+        #success-message {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            z-index: 20;
+        }
+        
+        #question-box {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="hearts-container"></div>
+
+    <div id="question-box" class="container">
+        <h1>Would you be mine Valentine? 💖</h1>
+        <div style="position: relative; height: 100px; width: 400px; display: flex; justify-content: center;">
+            <button id="btn-yes" onclick="sayYes()">Yes</button>
+            <button id="btn-no" onmouseover="runAway()" onclick="runAway()">No</button>
+        </div>
+    </div>
+
+    <div id="success-message">
+        <h1>Yay! I knew it! ❤️</h1>
+    </div>
+
+    <script>
+        // Hintergrund Herzen erstellen
+        function createHearts() {
+            const container = document.getElementById('hearts-container');
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('bg-heart');
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+                heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(heart);
+            }
+        }
+        createHearts();
+
+        // Nein-Button Logik (Das Wegrennen)
+        function runAway() {
+            const btnNo = document.getElementById('btn-no');
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+            
+            // Zufällige neue Position berechnen
+            const newX = Math.random() * (windowWidth - 150);
+            const newY = Math.random() * (windowHeight - 100);
+
+            // Position setzen (fixed damit er aus dem Layout bricht)
+            btnNo.style.position = 'fixed';
+            btnNo.style.left = newX + 'px';
+            btnNo.style.top = newY + 'px';
+        }
+
+        // Ja-Button Logik
+        function sayYes() {
+            document.getElementById('question-box').style.display = 'none';
+            document.getElementById('success-message').style.display = 'flex';
+            
+            // Extra Konfetti Explosion (einfach viele Emojis)
+            setInterval(() => {
+                const confetti = document.createElement('div');
+                confetti.innerHTML = ['❤️', '💍', '✨', '💖', '🥰'][Math.floor(Math.random() * 5)];
+                confetti.style.position = 'fixed';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.top = '-50px';
+                confetti.style.fontSize = '30px';
+                confetti.style.transition = 'top 3s ease-in';
+                confetti.style.zIndex = '100';
+                document.body.appendChild(confetti);
+
+                setTimeout(() => {
+                    confetti.style.top = '110vh';
+                }, 100);
+
+                setTimeout(() => {
+                    confetti.remove();
+                }, 3000);
+            }, 100);
+        }
+    </script>
+</body>
+</html>

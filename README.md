@@ -11,9 +11,9 @@ Wenn man auf Ja klickt, soll der Text sich ändern zu "Oh Yeah das wuste ich! un
 ## Datei
 Die Valentinstagskarte ist eine HTML datei, d.h. diese kann mit einem Doppelklick aufgemacht werden sodass es in Browser auftaucht.
 
-## Donwlaod
-Du kannst die HTML-Datei selbe herunter laden und dierkt nutzen 
+## Download
+Du kannst die HTML-Datei selber herunterladen und dierkt nutzen 
 
-oder 
+**oder **
 
-Der Code ist frei Verfügbar, man kann es also an beliebigen stelle anpassen
+Der Code ist frei Verfügbar, man kann es also an beliebigen stelle anpassen und bei eigenen Code Editor einfügen
